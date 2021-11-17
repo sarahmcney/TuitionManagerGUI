@@ -1,0 +1,554 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="512.0" prefWidth="699.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tuition.Controller">
+  <tabs>
+    <Tab text="Add Student">
+         <content>
+            <FlowPane orientation="VERTICAL" prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <Text fx:id="addStudentText" strokeType="OUTSIDE" strokeWidth="0.0" text="Add Student">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                     <FlowPane.margin>
+                        <Insets bottom="5.0" left="15.0" top="15.0" />
+                     </FlowPane.margin>
+                  </Text>
+                  <Text fx:id="addStudentTypeText" strokeType="OUTSIDE" strokeWidth="0.0" text="Student Type">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                     <FlowPane.margin>
+                        <Insets bottom="5.0" left="15.0" top="5.0" />
+                     </FlowPane.margin>
+                  </Text>
+                  <VBox fx:id="addStudentTypeVBox">
+                     <children>
+                        <RadioButton fx:id="addResidentRadioButton" mnemonicParsing="false" onAction="#toggleVisibilityDefault" text="Resident">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="addStudentTypeToggleGroup" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="addNonResidentRadioButton" mnemonicParsing="false" onAction="#toggleVisibilityDefault" text="Non-resident" toggleGroup="$addStudentTypeToggleGroup" />
+                        <RadioButton fx:id="addTriStateRadioButton" mnemonicParsing="false" onAction="#toggleVisibilityTriState" text="Non-resident (tri-state)" toggleGroup="$addStudentTypeToggleGroup" />
+                        <RadioButton fx:id="addInternationalRadioButton" mnemonicParsing="false" onAction="#toggleVisibilityInternational" text="Non-resident (international)" toggleGroup="$addStudentTypeToggleGroup" />
+                     </children>
+                     <FlowPane.margin>
+                        <Insets left="15.0" top="5.0" />
+                     </FlowPane.margin>
+                  </VBox>
+                  <Text fx:id="addNameText" strokeType="OUTSIDE" strokeWidth="0.0" text="Name">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                     <FlowPane.margin>
+                        <Insets bottom="5.0" left="15.0" top="5.0" />
+                     </FlowPane.margin>
+                  </Text>
+                  <TextField fx:id="addNameTextField">
+                     <FlowPane.margin>
+                        <Insets left="15.0" />
+                     </FlowPane.margin>
+                  </TextField>
+                  <Text fx:id="addMajorText" strokeType="OUTSIDE" strokeWidth="0.0" text="Major">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                     <FlowPane.margin>
+                        <Insets bottom="5.0" left="15.0" top="5.0" />
+                     </FlowPane.margin>
+                  </Text>
+                  <VBox fx:id="addMajorVBox">
+                     <children>
+                        <RadioButton fx:id="addCSRadioButton" mnemonicParsing="false" text="Computer Science (CS)">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="addMajorToggleGroup" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="addITRadioButton" mnemonicParsing="false" text="Information Technology (IT)" toggleGroup="$addMajorToggleGroup" />
+                        <RadioButton fx:id="addBARadioButton" mnemonicParsing="false" text="Business Analytics (BA)" toggleGroup="$addMajorToggleGroup" />
+                        <RadioButton fx:id="addEERadioButton" mnemonicParsing="false" text="Electrical Engineering (EE)" toggleGroup="$addMajorToggleGroup" />
+                        <RadioButton fx:id="addMERadioButton" mnemonicParsing="false" text="Mechanical Engineering (ME)" toggleGroup="$addMajorToggleGroup" />
+                     </children>
+                     <FlowPane.margin>
+                        <Insets left="15.0" top="5.0" />
+                     </FlowPane.margin>
+                  </VBox>
+                  <Text fx:id="addNumCreditsText" strokeType="OUTSIDE" strokeWidth="0.0" text="Number of Credits">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                     <FlowPane.margin>
+                        <Insets bottom="5.0" left="15.0" top="15.0" />
+                     </FlowPane.margin>
+                  </Text>
+                  <Spinner fx:id="addCreditsSpinner">
+		            <valueFactory>
+		                <SpinnerValueFactory.IntegerSpinnerValueFactory min="3" max="24"/>
+		            </valueFactory>
+		            <FlowPane.margin>
+		                <Insets bottom="5.0" left="15.0" top="5.0" />
+		            </FlowPane.margin>
+		        </Spinner>
+                  <Text fx:id="addStudyAbroadText" strokeType="OUTSIDE" strokeWidth="0.0" text="Study Abroad">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                     <FlowPane.margin>
+                        <Insets bottom="5.0" left="15.0" top="5.0" />
+                     </FlowPane.margin>
+                  </Text>
+                  <VBox fx:id="addStudyAbroadVBox">
+                     <children>
+                        <RadioButton fx:id="addYesRadioButton" disable="true" mnemonicParsing="false" text="Yes">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="addStudyAbroadToggleGroup" />
+                           </toggleGroup></RadioButton>
+                        <RadioButton fx:id="addNoRadioButton" disable="true" mnemonicParsing="false" text="No" toggleGroup="$addStudyAbroadToggleGroup" />
+                     </children>
+                     <FlowPane.margin>
+                        <Insets left="15.0" top="5.0" />
+                     </FlowPane.margin>
+                  </VBox>
+                  <Text fx:id="addStateText" strokeType="OUTSIDE" strokeWidth="0.0" text="State">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                     <FlowPane.margin>
+                        <Insets bottom="5.0" left="15.0" top="5.0" />
+                     </FlowPane.margin>
+                  </Text>
+                  <VBox fx:id="addStateVBox">
+                     <children>
+                        <RadioButton fx:id="addCTRadioButton" disable="true" mnemonicParsing="false" text="Connecticut">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="addStateToggleGroup" />
+                           </toggleGroup></RadioButton>
+                        <RadioButton fx:id="addNYRadioButton" disable="true" mnemonicParsing="false" text="New York" toggleGroup="$addStateToggleGroup" />
+                     </children>
+                     <FlowPane.margin>
+                        <Insets left="15.0" top="5.0" />
+                     </FlowPane.margin>
+                  </VBox>
+                  <Button fx:id="addButton" mnemonicParsing="false" onAction="#addStudent" text="Add Student">
+                     <FlowPane.margin>
+                        <Insets bottom="5.0" left="15.0" top="10.0" />
+                     </FlowPane.margin>
+                  </Button>
+                  <TextArea fx:id="addOutputTextArea" editable="false" prefHeight="221.0" prefWidth="224.0">
+                     <FlowPane.margin>
+                        <Insets bottom="10.0" left="15.0" top="5.0" />
+                     </FlowPane.margin>
+                  </TextArea>
+               </children>
+            </FlowPane>
+         </content></Tab>
+    <Tab text="Remove Student">
+         <content>
+            <FlowPane orientation="VERTICAL" prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <Text fx:id="rmStudentText" strokeType="OUTSIDE" strokeWidth="0.0" text="Remove Student">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                     <FlowPane.margin>
+                        <Insets bottom="5.0" left="15.0" top="15.0" />
+                     </FlowPane.margin>
+                  </Text>
+                  <Text fx:id="rmNameText" strokeType="OUTSIDE" strokeWidth="0.0" text="Name">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                     <FlowPane.margin>
+                        <Insets bottom="5.0" left="15.0" top="5.0" />
+                     </FlowPane.margin>
+                  </Text>
+                  <TextField fx:id="rmNameTextField" promptText="Student name">
+                     <FlowPane.margin>
+                        <Insets bottom="5.0" left="15.0" />
+                     </FlowPane.margin>
+                  </TextField>
+                  <Text fx:id="rmMajorText" strokeType="OUTSIDE" strokeWidth="0.0" text="Major">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                     <FlowPane.margin>
+                        <Insets bottom="5.0" left="15.0" top="5.0" />
+                     </FlowPane.margin>
+                  </Text>
+                  <VBox fx:id="rmMajorVBox">
+                     <children>
+                        <RadioButton fx:id="rmCSRadioButton" mnemonicParsing="false" text="Computer Science (CS)">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="rmMajorToggleGroup" />
+                           </toggleGroup>
+                           <FlowPane.margin>
+                              <Insets bottom="5.0" left="15.0" />
+                           </FlowPane.margin>
+                        </RadioButton>
+                        <RadioButton fx:id="rmITRadioButton" mnemonicParsing="false" text="Information Technology (IT)" toggleGroup="$rmMajorToggleGroup">
+                           <FlowPane.margin>
+                              <Insets bottom="5.0" left="15.0" />
+                           </FlowPane.margin>
+                        </RadioButton>
+                        <RadioButton fx:id="rmBARadioButton" mnemonicParsing="false" text="Business Analytics (BA)" toggleGroup="$rmMajorToggleGroup">
+                           <FlowPane.margin>
+                              <Insets bottom="5.0" left="15.0" />
+                           </FlowPane.margin>
+                        </RadioButton>
+                        <RadioButton fx:id="rmEERadioButton" mnemonicParsing="false" text="Electrical Engineering (EE)" toggleGroup="$rmMajorToggleGroup">
+                           <FlowPane.margin>
+                              <Insets bottom="5.0" left="15.0" />
+                           </FlowPane.margin>
+                        </RadioButton>
+                        <RadioButton fx:id="rmMERadioButton" mnemonicParsing="false" text="Mechanical Engineering (ME)" toggleGroup="$rmMajorToggleGroup">
+                           <FlowPane.margin>
+                              <Insets bottom="5.0" left="15.0" />
+                           </FlowPane.margin>
+                        </RadioButton>
+                     </children>
+                     <FlowPane.margin>
+                        <Insets bottom="5.0" left="15.0" />
+                     </FlowPane.margin>
+                  </VBox>
+                  <Button fx:id="rmButton" mnemonicParsing="false" onAction="#removeStudent" text="Remove Student">
+                     <FlowPane.margin>
+                        <Insets left="15.0" top="5.0" />
+                     </FlowPane.margin>
+                  </Button>
+                  <TextArea fx:id="rmOutputTextArea" editable="false" prefHeight="303.0" prefWidth="242.0">
+                     <FlowPane.margin>
+                        <Insets bottom="5.0" left="15.0" top="10.0" />
+                     </FlowPane.margin>
+                  </TextArea>
+               </children>
+            </FlowPane>
+         </content>
+    </Tab>
+      <Tab text="Calculate Tuition">
+         <content>
+            <AnchorPane prefHeight="457.0" prefWidth="699.0">
+               <children>
+                  <Button fx:id="singleStudentButton" layoutX="163.0" layoutY="149.0" mnemonicParsing="false" onAction="#calculateBalance_individual" text="Single Student" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="100.0" />
+                  <Button fx:id="allStudentsButton" layoutX="388.0" layoutY="149.0" mnemonicParsing="false" onAction="#calculateBalance_all" text="All Students" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="100.0" />
+                  <Text layoutX="57.0" layoutY="205.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name:" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="180.0" />
+                  <TextField fx:id="tuitionNameTextField" layoutX="126.0" layoutY="179.0" AnchorPane.leftAnchor="110.0" AnchorPane.topAnchor="180.0" />
+                  <Text layoutX="57.0" layoutY="253.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Major:" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="230.0" />
+                  <VBox fx:id="tuitionMajorVBox" layoutX="125.0" layoutY="205.0" AnchorPane.bottomAnchor="200.0" AnchorPane.topAnchor="230.0">
+                     <children>
+                        <RadioButton fx:id="tuitionCSTextField" layoutX="126.0" layoutY="233.0" mnemonicParsing="false" text="Computer Science (CS)" AnchorPane.leftAnchor="125.0" AnchorPane.topAnchor="205.0">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="tuitionMajorToggleGroup" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="tuitionITTextField" layoutX="126.0" layoutY="271.0" mnemonicParsing="false" text="Information Technology (IT)" toggleGroup="$tuitionMajorToggleGroup" AnchorPane.leftAnchor="125.0" AnchorPane.topAnchor="246.0" />
+                        <RadioButton fx:id="tuitionBATextField" layoutX="126.0" layoutY="308.0" mnemonicParsing="false" text="Business Analytics (BA)" toggleGroup="$tuitionMajorToggleGroup" AnchorPane.leftAnchor="125.0" AnchorPane.topAnchor="285.0" />
+                        <RadioButton fx:id="tuitionEETextField" layoutX="126.0" layoutY="346.0" mnemonicParsing="false" text="Electrical Engineering (EE)" toggleGroup="$tuitionMajorToggleGroup" AnchorPane.leftAnchor="125.0" AnchorPane.topAnchor="325.0" />
+                        <RadioButton fx:id="tuitionMETextField" layoutX="125.0" layoutY="389.0" mnemonicParsing="false" text="Mechanical Engineering (ME)" toggleGroup="$tuitionMajorToggleGroup" AnchorPane.topAnchor="365.0" />
+                     </children>
+                  </VBox>
+                  <TextArea fx:id="tuitionOutputTextArea" editable="false" layoutX="50.0" layoutY="381.0" prefHeight="92.0" prefWidth="599.0" AnchorPane.bottomAnchor="92.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="381.0" />
+                  <Text layoutX="50.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Calculate Tuition">
+                     <font>
+                        <Font name="System Bold" size="22.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="50.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*NOTE: do not calculate single student tuition without entering a name and major first." AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="51.892578125">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+         </content>
+      </Tab>
+      <Tab text="Financial Aid">
+         <content>
+            <FlowPane orientation="VERTICAL" prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Set Financial Aid">
+                     <font>
+                        <Font name="System Bold" size="22.0" />
+                     </font>
+                     <FlowPane.margin>
+                        <Insets bottom="5.0" left="15.0" top="15.0" />
+                     </FlowPane.margin>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="(resident students only)">
+                     <FlowPane.margin>
+                        <Insets bottom="5.0" left="15.0" top="5.0" />
+                     </FlowPane.margin>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Name">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                     <FlowPane.margin>
+                        <Insets bottom="5.0" left="15.0" top="5.0" />
+                     </FlowPane.margin>
+                  </Text>
+                  <TextField fx:id="finAidNameTextField">
+                     <FlowPane.margin>
+                        <Insets bottom="5.0" left="15.0" top="5.0" />
+                     </FlowPane.margin>
+                  </TextField>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Major">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                     <FlowPane.margin>
+                        <Insets bottom="5.0" left="15.0" top="5.0" />
+                     </FlowPane.margin>
+                  </Text>
+                  <VBox fx:id="finAidMajorVBox">
+                     <children>
+                        <RadioButton mnemonicParsing="false" text="Computer Science (CS)">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="finAidMajorToggleGroup" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton mnemonicParsing="false" text="Information Technology (IT)" toggleGroup="$finAidMajorToggleGroup" />
+                        <RadioButton mnemonicParsing="false" text="Business Analytics (BA)" toggleGroup="$finAidMajorToggleGroup" />
+                        <RadioButton mnemonicParsing="false" text="Electrical Engineering (EE)" toggleGroup="$finAidMajorToggleGroup" />
+                        <RadioButton mnemonicParsing="false" text="Mechanical Engineering (ME)" toggleGroup="$finAidMajorToggleGroup" />
+                     </children>
+                     <FlowPane.margin>
+                        <Insets bottom="5.0" left="15.0" top="5.0" />
+                     </FlowPane.margin>
+                  </VBox>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Financial Aid Amount">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                     <FlowPane.margin>
+                        <Insets bottom="5.0" left="15.0" top="5.0" />
+                     </FlowPane.margin>
+                  </Text>
+                  <TextField fx:id="finAidAmountTextField">
+                     <FlowPane.margin>
+                        <Insets bottom="5.0" left="15.0" top="5.0" />
+                     </FlowPane.margin>
+                  </TextField>
+                  <Button mnemonicParsing="false" onAction="#setFinancialAid" text="Set Financial Aid">
+                     <FlowPane.margin>
+                        <Insets bottom="5.0" left="15.0" top="5.0" />
+                     </FlowPane.margin>
+                  </Button>
+                  <TextArea fx:id="finAidOutputTextArea" editable="false" prefHeight="328.0" prefWidth="231.0">
+                     <FlowPane.margin>
+                        <Insets bottom="5.0" left="15.0" top="5.0" />
+                     </FlowPane.margin>
+                  </TextArea>
+               </children>
+            </FlowPane>
+         </content>
+      </Tab>
+      <Tab text="Study Abroad">
+         <content>
+            <FlowPane orientation="VERTICAL" prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Enroll in Study Abroad">
+                     <font>
+                        <Font name="System Bold" size="22.0" />
+                     </font>
+                     <FlowPane.margin>
+                        <Insets bottom="5.0" left="15.0" top="10.0" />
+                     </FlowPane.margin>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="(international students only)">
+                     <FlowPane.margin>
+                        <Insets bottom="5.0" left="15.0" />
+                     </FlowPane.margin>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Name">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                     <FlowPane.margin>
+                        <Insets bottom="5.0" left="15.0" top="10.0" />
+                     </FlowPane.margin>
+                  </Text>
+                  <TextField fx:id="abroadNameTextField">
+                     <FlowPane.margin>
+                        <Insets bottom="5.0" left="15.0" top="5.0" />
+                     </FlowPane.margin>
+                  </TextField>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Major">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                     <FlowPane.margin>
+                        <Insets bottom="5.0" left="15.0" top="5.0" />
+                     </FlowPane.margin>
+                  </Text>
+                  <VBox fx:id="abroadMajorVBox">
+                     <children>
+                        <RadioButton fx:id="abroadCSRadioButton" mnemonicParsing="false" text="Computer Science (CS)">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="studyAbroadMajorToggleGroup" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="abroadITRadioButton" mnemonicParsing="false" text="Information Technology (IT)" toggleGroup="$studyAbroadMajorToggleGroup" />
+                        <RadioButton fx:id="abroadBARadioButton" mnemonicParsing="false" text="Business Analytics (BA)" toggleGroup="$studyAbroadMajorToggleGroup" />
+                        <RadioButton fx:id="abroadEERadioButton" mnemonicParsing="false" text="Electrical Engineering (EE)" toggleGroup="$studyAbroadMajorToggleGroup" />
+                        <RadioButton fx:id="abroadMERadioButton" mnemonicParsing="false" text="Mechanical Engineering (ME)" toggleGroup="$studyAbroadMajorToggleGroup" />
+                     </children>
+                     <FlowPane.margin>
+                        <Insets bottom="5.0" left="15.0" top="5.0" />
+                     </FlowPane.margin>
+                  </VBox>
+                  <Button fx:id="enrollStudyAbroadButton" mnemonicParsing="false" onAction="#enrollStudyAbroad" text="Enroll in Study Abroad">
+                     <FlowPane.margin>
+                        <Insets bottom="5.0" left="15.0" top="5.0" />
+                     </FlowPane.margin>
+                  </Button>
+                  <TextArea fx:id="abroadOutputTextArea" editable="false" prefHeight="318.0" prefWidth="227.0">
+                     <FlowPane.margin>
+                        <Insets left="15.0" top="5.0" />
+                     </FlowPane.margin>
+                  </TextArea>
+               </children>
+            </FlowPane>
+         </content>
+      </Tab>
+      <Tab text="Make Payment">
+         <content>
+            <FlowPane orientation="VERTICAL" prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Pay Tuition">
+                     <font>
+                        <Font name="System Bold" size="22.0" />
+                     </font>
+                     <FlowPane.margin>
+                        <Insets bottom="5.0" left="15.0" top="15.0" />
+                     </FlowPane.margin>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Name">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                     <FlowPane.margin>
+                        <Insets bottom="5.0" left="15.0" top="5.0" />
+                     </FlowPane.margin>
+                  </Text>
+                  <TextField fx:id="paymentNameTextField">
+                     <FlowPane.margin>
+                        <Insets bottom="5.0" left="15.0" top="5.0" />
+                     </FlowPane.margin>
+                  </TextField>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Major">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                     <FlowPane.margin>
+                        <Insets bottom="5.0" left="15.0" top="5.0" />
+                     </FlowPane.margin>
+                  </Text>
+                  <VBox fx:id="paymentMajorVBox">
+                     <children>
+                        <RadioButton fx:id="paymentCSRadioButton" mnemonicParsing="false" text="Computer Science (CS)">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="paymentMajorToggleGroup" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="paymentITRadioButton" mnemonicParsing="false" text="Information Technology (IT)" toggleGroup="$paymentMajorToggleGroup" />
+                        <RadioButton fx:id="paymentBARadioButton" mnemonicParsing="false" text="Business Analytics (BA)" toggleGroup="$paymentMajorToggleGroup" />
+                        <RadioButton fx:id="paymentEERadioButton" mnemonicParsing="false" text="Electrical Engineering (EE)" toggleGroup="$paymentMajorToggleGroup" />
+                        <RadioButton fx:id="paymentMERadioButton" mnemonicParsing="false" text="Mechanical Engineering (ME)" toggleGroup="$paymentMajorToggleGroup" />
+                     </children>
+                     <FlowPane.margin>
+                        <Insets bottom="5.0" left="15.0" top="5.0" />
+                     </FlowPane.margin>
+                  </VBox>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Amount">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                     <FlowPane.margin>
+                        <Insets bottom="5.0" left="15.0" top="5.0" />
+                     </FlowPane.margin>
+                  </Text>
+                  <TextField fx:id="paymentAmountTextField">
+                     <FlowPane.margin>
+                        <Insets bottom="5.0" left="15.0" top="5.0" />
+                     </FlowPane.margin>
+                  </TextField>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Payment Date">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                     <FlowPane.margin>
+                        <Insets bottom="5.0" left="15.0" top="5.0" />
+                     </FlowPane.margin>
+                  </Text>
+                  <DatePicker fx:id="paymentDatePicker">
+                     <FlowPane.margin>
+                        <Insets bottom="5.0" left="15.0" top="5.0" />
+                     </FlowPane.margin>
+                  </DatePicker>
+                  <Button fx:id="makePaymentButton" mnemonicParsing="false" onAction="#makePayment" text="Make Payment">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                     <FlowPane.margin>
+                        <Insets bottom="5.0" left="15.0" top="5.0" />
+                     </FlowPane.margin>
+                  </Button>
+                  <TextArea fx:id="paymentOutputTextArea" editable="false" prefHeight="288.0" prefWidth="244.0">
+                     <FlowPane.margin>
+                        <Insets bottom="5.0" left="15.0" top="5.0" />
+                     </FlowPane.margin>
+                  </TextArea>
+               </children>
+            </FlowPane>
+         </content>
+      </Tab>
+      <Tab text="Print Roster">
+         <content>
+            <FlowPane orientation="VERTICAL" prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Print Roster">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                     <FlowPane.margin>
+                        <Insets bottom="5.0" left="15.0" top="15.0" />
+                     </FlowPane.margin>
+                  </Text>
+                  <HBox>
+                     <children>
+                        <Button fx:id="printRosterButton" mnemonicParsing="false" onAction="#printRoster" text="Print Roster">
+                           <HBox.margin>
+                              <Insets bottom="5.0" left="15.0" top="5.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button fx:id="printRosterAlphabeticalButton" mnemonicParsing="false" onAction="#printRosterAlphabetical" text="Print Roster (Alphabetical)">
+                           <HBox.margin>
+                              <Insets bottom="5.0" left="15.0" top="5.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button fx:id="printRosterPaymentDateButton" mnemonicParsing="false" onAction="#printRosterPaymentDate" text="Print Roster (By Payment Date)">
+                           <HBox.margin>
+                              <Insets bottom="5.0" left="15.0" top="5.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <TextArea fx:id="printOutputTextArea" prefHeight="310.0" prefWidth="663.0">
+                     <FlowPane.margin>
+                        <Insets bottom="5.0" left="15.0" top="5.0" />
+                     </FlowPane.margin>
+                  </TextArea>
+               </children>
+            </FlowPane>
+         </content>
+      </Tab>
+  </tabs>
+</TabPane>
